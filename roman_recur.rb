@@ -57,19 +57,66 @@ def integer_to_roman(roman_mapping, number, result = "")
   puts result
 end
 
+# def roman_to_int(roman_mapping2, numeral, result_int = 0)
+#   if numeral == ''
+#     puts 'top'
+#     return result_int
+#   else roman_mapping2.keys.each do |roman|
+#     if roman == numeral[0, roman.length]
+#       numeral_trim = numeral.delete_prefix(roman)
+#       # puts "numeral trim: #{numeral_trim}"
+#       result_int += roman_mapping2[roman]
+#       # puts "result_int: #{result_int}"
+#       # puts 'A'
+#       roman_to_int(roman_mapping2, numeral_trim, result_int)
+#       # puts 'B'
+#     end
+#   end
+#   end
+#   # puts 'C'
+#   puts result_int
+# end
+
 def roman_to_int(roman_mapping2, numeral, result_int = 0)
-  if numeral == ''
-    return result_int
-  else roman_mapping2.keys.each do |roman|
+  return result_int if numeral == ''
+  roman_mapping2.keys.each do |roman|
     if roman == numeral[0, roman.length]
-      numeral = numeral.delete_prefix(roman)
+      numeral_trim = numeral.delete_prefix(roman)
+      # puts "numeral trim: #{numeral_trim}"
       result_int += roman_mapping2[roman]
-      roman_to_int(roman_mapping2, numeral, result_int)
+      # puts "result_int: #{result_int}"
+      # puts 'A'
+      return roman_to_int(roman_mapping2, numeral_trim, result_int) # THIS MISSING RETURN WAS CHANGING ALL HOLY MOLY
+      # puts 'B'
     end
   end
-  end
+  # end
+  # puts 'C'
   puts result_int
 end
+
+
+# def roman_to_integer(roman_mapping, str, result = 0)
+#   return result if str.empty?
+#   roman_mapping.keys.each do |roman|
+#     if str.start_with?(roman)
+#       result += roman_mapping[roman]
+#       str = str.slice(roman.length, str.length)
+#       return roman_to_integer(roman_mapping, str, result)
+#     end
+#   end
+# end
+
+# MCML
+  
+
+#   "M" => 1000,
+#   "CM" => 900,
+#   "D" => 500,
+#   "CD" => 400,
+#   "C" => 100,
+#   "XC" => 90,
+#   "L" => 50,
 
 
 # 1950 integer_to_roman example
@@ -96,8 +143,8 @@ end
 # puts integer_to_roman(@roman_mapping, 1100, '')
 # puts 950
 # puts integer_to_roman(@roman_mapping, 950, '')
-puts 1950
-puts integer_to_roman(@roman_mapping, 1950,'')
+# puts 1950
+# puts integer_to_roman(@roman_mapping, 1950,'')
 
 puts 'MCML'
 puts roman_to_int(@roman_mapping2, 'MCML', 0)
