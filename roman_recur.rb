@@ -79,6 +79,7 @@ end
 
 def roman_to_int(roman_mapping2, numeral, result_int = 0)
   return result_int if numeral == ''
+
   roman_mapping2.keys.each do |roman|
     if roman == numeral[0, roman.length]
       numeral_trim = numeral.delete_prefix(roman)
@@ -92,7 +93,7 @@ def roman_to_int(roman_mapping2, numeral, result_int = 0)
   end
   # end
   # puts 'C'
-  puts result_int
+  # puts result_int
 end
 
 
