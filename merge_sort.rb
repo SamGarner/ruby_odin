@@ -19,11 +19,13 @@ def merge_sort(array)
 
   until left.empty? && right.empty?
     if left.empty?
-      arr << right.shift #inject { |v, num| v << num} # [] ?
-      # return arr
+      # arr << right.shift
+      arr.concat(right)
+      return arr
     elsif right.empty?
-      arr << left.shift # how to shift all to make more efficient?
-      # return arr
+      # arr << left.shift
+      arr.concat(left)
+      return arr
     elsif left[0] < right[0]
       arr << left.shift
     else
@@ -45,46 +47,6 @@ end
 second = [9,4,7,3,27,5,4,78] # 33, 54
 p second
 p merge_sort(second)
-
-
-  # 7
-  # mid = 3
-  # left = array[0..3-1] 0,1,2
-  # right = array[3..len] 4,5,6,7
-
-  # 6
-  # mid = 3 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # # COPY
 # def merge_sort(array)
