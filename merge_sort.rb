@@ -7,23 +7,22 @@
 # left = merge_sort(left), right = merge_sort(right)
 # empty array to update after comparisons of two groups as a whole and their first values
 
-
 def merge_sort(array)
   len = array.length
   mid = (len / 2.0).floor
   arr = []
   return array if len == 1
-  
-  left = merge_sort(array[0..(mid - 1)]) #mergesort
-  right = merge_sort(array[mid..(len - 1)]) #mergesort
+
+  left = merge_sort(array[0..(mid - 1)])
+  right = merge_sort(array[mid..(len - 1)])
 
   until left.empty? && right.empty?
     if left.empty?
-      # arr << right.shift
+      # arr << right.shift, remove 'return arr' in this branch if using shift
       arr.concat(right)
       return arr
     elsif right.empty?
-      # arr << left.shift
+      # arr << left.shift, remove 'return arr' in this branch if using shift
       arr.concat(left)
       return arr
     elsif left[0] < right[0]
@@ -32,21 +31,12 @@ def merge_sort(array)
       arr << right.shift
     end
   end
-  return arr
-end    
+  arr
+end
 
-# [2,1]
-
-
-# p [2,1]
-# p merge_sort([2,1])
-# first = [1,4,3,2]
-# p first
-# p merge_sort(first)
-
-second = [9,4,7,3,27,5,4,78] # 33, 54
-p second
-p merge_sort(second)
+array = [9, 4, 7, 3, 27, 5, 4, 78]
+p array
+p merge_sort(array)
 
 # # COPY
 # def merge_sort(array)
@@ -56,7 +46,7 @@ p merge_sort(second)
 #         second_half = half[1]
 #         first_half = merge_sort(first_half)
 #         second_half = merge_sort(second_half)
-        
+
 #         sorted_array = []
 #         until first_half.empty? && second_half.empty?
 #             if !first_half.empty? && (second_half.empty? || first_half[0] < second_half[0])
