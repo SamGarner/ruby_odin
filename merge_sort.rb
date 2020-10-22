@@ -1,7 +1,7 @@
 # frozen_string_literal: false
 
-#Build a method merge_sort that takes in an array and returns a sorted array, 
-#using a recursive merge sort methodology.
+# Build a method merge_sort that takes in an array and returns a sorted array, 
+# using a recursive merge sort methodology.
 
 # divide left and right
 # left = merge_sort(left), right = merge_sort(right)
@@ -34,7 +34,7 @@ def merge_sort(array)
   arr
 end
 
-array = [9, 4, 7, 3, 27, 5, 4, 78]
+array = [9, 4, 7, 3, 27, 5, 4, 78, 0]
 p array
 p merge_sort(array)
 
